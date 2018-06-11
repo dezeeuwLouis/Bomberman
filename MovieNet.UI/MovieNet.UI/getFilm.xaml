@@ -1,0 +1,39 @@
+﻿<Page x:Class="MovieNet.UI.getFilm"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MovieNet.UI"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="getFilm">
+
+    <Grid Background="Black">
+        <Grid.Effect>
+            <DropShadowEffect/>
+        </Grid.Effect>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Stroke="#FF07061D" StrokeThickness="0,0,0,1" HorizontalAlignment="Left" Height="77" VerticalAlignment="Top" Width="849" Grid.ColumnSpan="2" Margin="-24,398,-25,-25">
+            <Rectangle.Fill>
+                <RadialGradientBrush>
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="#FF404040"/>
+                </RadialGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBox Text="{Binding name}" x:Name="nameInp" BorderThickness="0 0 0 1" Height="23" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="152,139,0,0" VerticalAlignment="Top" Width="182" Background="Transparent" Foreground="#FFF0F0F0"/>
+        <Label Content="Nom :" Foreground="WhiteSmoke" HorizontalAlignment="Left" Margin="105,139,0,0" VerticalAlignment="Top" Height="26" Width="65"/>
+        <TextBox  Text="{Binding category}" x:Name="categoryInp" BorderThickness="0 0 0 1" Height="23" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="152,195,0,0" VerticalAlignment="Top" Width="182" Background="Transparent" Foreground="#FFF0F0F0"/>
+        <Label Content="Category :" Foreground="WhiteSmoke" HorizontalAlignment="Left" Margin="86,194,0,0" VerticalAlignment="Top" Height="26" Width="65"/>
+        <TextBox Text="{Binding resume}" x:Name="resumeInp" BorderThickness="0 0 0 1" Height="23" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="152,250,0,0" VerticalAlignment="Top" Width="182" Background="Transparent" Foreground="#FFF0F0F0"/>
+        <Label Content="Resumé :" Foreground="WhiteSmoke" HorizontalAlignment="Left" Margin="94,247,0,0" VerticalAlignment="Top" Height="26" Width="65"/>
+        <Button Content="Update" HorizontalAlignment="Left" Margin="259,315,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <ListBox Grid.Column="1" HorizontalAlignment="Left" Height="196" Margin="44,139,0,0" VerticalAlignment="Top" Width="324"/>
+        <TextBox Text="Comment..." x:Name="categoryInp_Copy" BorderThickness="0 0 0 1" Height="23" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="44,357,0,0" VerticalAlignment="Top" Width="230" Background="Transparent" Foreground="#FFF0F0F0" Grid.Column="1"/>
+        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="293,360,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Back to list" HorizontalAlignment="Left" Margin="293,36,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
+    </Grid>
+</Page>

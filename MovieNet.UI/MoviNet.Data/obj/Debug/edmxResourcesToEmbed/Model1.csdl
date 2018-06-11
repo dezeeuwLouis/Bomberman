@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="UserSet" EntityType="Model1.User" />
+    <EntitySet Name="ProduitSet" EntityType="Model1.Produit" />
+    <EntitySet Name="CommentSet" EntityType="Model1.Comment" />
+    <AssociationSet Name="ProduitComment" Association="Model1.ProduitComment">
+      <End Role="Produit" EntitySet="ProduitSet" />
+      <End Role="Comment" EntitySet="CommentSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="email" Type="String" Nullable="false" />
+    <Property Name="password" Type="String" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Produit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" Nullable="false" />
+    <Property Name="genre" Type="String" Nullable="false" />
+    <Property Name="resume" Type="String" Nullable="false" />
+    <NavigationProperty Name="Comment" Relationship="Model1.ProduitComment" FromRole="Produit" ToRole="Comment" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="notation" Type="Int16" Nullable="false" />
+    <Property Name="content" Type="String" Nullable="false" />
+    <NavigationProperty Name="Produit" Relationship="Model1.ProduitComment" FromRole="Comment" ToRole="Produit" />
+  </EntityType>
+  <Association Name="ProduitComment">
+    <End Type="Model1.Produit" Role="Produit" Multiplicity="1" />
+    <End Type="Model1.Comment" Role="Comment" Multiplicity="*" />
+  </Association>
+</Schema>
